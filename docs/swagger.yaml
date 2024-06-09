@@ -1,0 +1,249 @@
+basePath: /v1
+definitions:
+  entity.TaskRequest:
+    properties:
+      completed:
+        example: true
+        type: boolean
+      description:
+        example: Run the database in docker and perform the migration
+        type: string
+      due_date:
+        example: "2006-01-02 15:04:05"
+        type: string
+      title:
+        example: Create a database
+        type: string
+    type: object
+  entity.TaskResponse:
+    properties:
+      completed:
+        example: true
+        type: boolean
+      description:
+        example: Run the database in docker and perform the migration
+        type: string
+      due_date:
+        example: "2022-04-09T15:04:05Z"
+        type: string
+      id:
+        example: 22
+        type: integer
+      title:
+        example: Create a database
+        type: string
+    type: object
+  v1.message:
+    properties:
+      message:
+        example: Test message
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: marat.xasbiullin@gmail.com
+    name: Marat Khasbiullin
+  description: Using a translation service as an example
+  title: To Do API
+  version: "1.0"
+paths:
+  /todo/task:
+    get:
+      consumes:
+      - application/json
+      description: Get Task by Date With Filter
+      parameters:
+      - description: on what date to issue the tasks
+        in: query
+        name: date
+        type: string
+      - description: filter parameter completed
+        in: query
+        name: status
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.TaskResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get Task by Date With Filter
+      tags:
+      - task
+    post:
+      consumes:
+      - application/json
+      description: Create Task
+      parameters:
+      - description: body params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.TaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Create Task
+      tags:
+      - task
+  /todo/task/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Task
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Delete Task
+      tags:
+      - task
+    get:
+      consumes:
+      - application/json
+      description: Get Task by ID
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.TaskResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get Task by ID
+      tags:
+      - task
+    put:
+      consumes:
+      - application/json
+      description: Update Task
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.TaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.message'
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Update Task
+      tags:
+      - task
+  /todo/tasks:
+    get:
+      consumes:
+      - application/json
+      description: Get Tasks With Pagination
+      parameters:
+      - description: pagination parameter page
+        in: query
+        name: page
+        type: integer
+      - description: pagination parameter page size
+        in: query
+        name: pageSize
+        type: integer
+      - description: filter parameter completed
+        in: query
+        name: status
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.TaskResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get Tasks With Pagination
+      tags:
+      - task
+swagger: "2.0"
