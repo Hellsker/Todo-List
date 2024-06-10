@@ -320,15 +320,15 @@ const docTemplate = `{
                 },
                 "description": {
                     "type": "string",
-                    "example": "Run the database in docker and perform the migration"
+                    "example": "Read the book The Lord of the Rings, stopped at the third chapter"
                 },
                 "due_date": {
                     "type": "string",
-                    "example": "2006-01-02 15:04:05"
+                    "example": "2024-06-10"
                 },
                 "title": {
                     "type": "string",
-                    "example": "Create a database"
+                    "example": "Read a book"
                 }
             }
         },
@@ -341,11 +341,11 @@ const docTemplate = `{
                 },
                 "description": {
                     "type": "string",
-                    "example": "Run the database in docker and perform the migration"
+                    "example": "Read the book The Lord of the Rings, stopped at the third chapter"
                 },
                 "due_date": {
                     "type": "string",
-                    "example": "2022-04-09T15:04:05Z"
+                    "example": "2024-06-10T00:00:00Z"
                 },
                 "id": {
                     "type": "integer",
@@ -353,7 +353,7 @@ const docTemplate = `{
                 },
                 "title": {
                     "type": "string",
-                    "example": "Create a database"
+                    "example": "Read a book"
                 }
             }
         },
@@ -375,8 +375,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/v1",
 	Schemes:          []string{},
-	Title:            "To Do API",
-	Description:      "Using a translation service as an example",
+	Title:            "ToDo API",
+	Description:      "Todo API example",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Using a translation service as an example",
-        "title": "To Do API",
+        "description": "Todo API example",
+        "title": "ToDo API",
         "contact": {
             "name": "Marat Khasbiullin",
             "email": "marat.xasbiullin@gmail.com"
@@ -314,15 +314,15 @@
                 },
                 "description": {
                     "type": "string",
-                    "example": "Run the database in docker and perform the migration"
+                    "example": "Read the book The Lord of the Rings, stopped at the third chapter"
                 },
                 "due_date": {
                     "type": "string",
-                    "example": "2006-01-02 15:04:05"
+                    "example": "2024-06-10"
                 },
                 "title": {
                     "type": "string",
-                    "example": "Create a database"
+                    "example": "Read a book"
                 }
             }
         },
@@ -335,11 +335,11 @@
                 },
                 "description": {
                     "type": "string",
-                    "example": "Run the database in docker and perform the migration"
+                    "example": "Read the book The Lord of the Rings, stopped at the third chapter"
                 },
                 "due_date": {
                     "type": "string",
-                    "example": "2022-04-09T15:04:05Z"
+                    "example": "2024-06-10T00:00:00Z"
                 },
                 "id": {
                     "type": "integer",
@@ -347,7 +347,7 @@
                 },
                 "title": {
                     "type": "string",
-                    "example": "Create a database"
+                    "example": "Read a book"
                 }
             }
         },
