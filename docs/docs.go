@@ -345,7 +345,7 @@ const docTemplate = `{
                 },
                 "due_date": {
                     "type": "string",
-                    "example": "2024-06-10T00:00:00Z"
+                    "example": "2024-06-10"
                 },
                 "id": {
                     "type": "integer",

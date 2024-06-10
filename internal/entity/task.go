@@ -10,7 +10,7 @@ type TaskResponse struct {
 	ID          int       `json:"id" example:"22"`
 	Title       string    `json:"title" example:"Read a book"`
 	Description string    `json:"description" example:"Read the book The Lord of the Rings, stopped at the third chapter"`
-	DueDate     time.Time `json:"due_date" example:"2024-06-10T00:00:00Z"`
+	DueDate     time.Time `json:"due_date" example:"2024-06-10"`
 	Completed   bool      `json:"completed" example:"true"`
 }
 
